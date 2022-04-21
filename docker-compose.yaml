@@ -1,0 +1,11 @@
+version: "3"
+services:
+  rabbitmq:
+    container_name: wlm-mq
+    image: rabbitmq:3-management-alpine
+    restart: always
+    env_file:
+      - .rabbitmq.env
+    ports:
+      - "${RABBITMQ_CLIENT_PORT}:5672"
+      - "${RABBITMQ_SERVER_PORT}:15672"
